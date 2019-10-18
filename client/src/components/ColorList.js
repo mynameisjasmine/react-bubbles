@@ -17,11 +17,36 @@ const ColorList = ({ colors, updateColors }) => {
     setColorToEdit(color);
   };
 
-  const saveEdit = e => {
-    e.preventDefault();
-    // Make a put request to save your updated color
-    // think about where will you get the id from...
-    // where is is saved right now?
+  // const saveEdit = e => {
+  //   e.preventDefault();
+  //   // Make a put request to save your updated color
+  //   // think about where will you get the id from...
+  //   // where is is saved right now?
+  //   axiosWithAuth()
+  //   .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
+  //   .then(res => {
+  //   console.log(res.data);
+    
+  //   })
+  //   .catch(err => console.log(err.response))
+
+    
+
+  // };
+
+  const saveEdit = index => e => {
+  setColorToEdit({
+ ...colorToEdit,
+ color: colors.map((color, indexOfColor) => {
+   if(indexOfColor === index) {
+     return e.target.value
+     
+   } else {
+     return color
+   }
+ })
+  })
+  e.preventDefault();
     axiosWithAuth()
     .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
     .then(res => {
@@ -30,11 +55,9 @@ const ColorList = ({ colors, updateColors }) => {
     })
     .catch(err => console.log(err.response))
 
-    
+  }
 
-  };
-
-  // updateColors()
+  
 
   const deleteColor = color => {
 
