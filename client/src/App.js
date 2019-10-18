@@ -18,7 +18,7 @@ function App() {
         </li>
       </ul>
       <Switch>
-        <Route path="/" component={Login} />
+        <Route exact path="/" component={Login} />
         {/* 
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated.
