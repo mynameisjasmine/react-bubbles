@@ -11,7 +11,7 @@ function App() {
         <Route exact path="/" component={Login} />
         {/* 
           Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
+          display BubblePage when you're authenticated.
         */}
       </div>
     </Router>
